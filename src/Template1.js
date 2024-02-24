@@ -1,61 +1,88 @@
 import React from "react";
 
-export class Header extends React.Component{
-    render(){
-        
-        return(
+export class Header extends React.Component {
+    render() {
+
+        return (
             <div>
-                 <h1>{this.props.title}</h1>
-                 <h2>{this.props.subtitle}</h2>
+                <h1>{this.props.title}</h1>
+                <h2>{this.props.subtitle}</h2>
             </div>
 
         )
     }
 }
 
-export class Action extends React.Component{
-    render(){
-        return(
+export class Action extends React.Component {
+    handleClick() {
+        alert('HandlePick');
+    }
+    render() {
+        return (
             <div>
-                <button>What should i do?</button>
+                <button onClick={this.handleClick}>What should i do?</button>
             </div>
         )
     }
 }
 
-export class Options extends React.Component{
-    render(){
-        return(
+export class Options extends React.Component {
+    handleRemoveAll() {
+        console.log(this);
+        alert('handleRemoveAll');
+    }
+    render() {
+        return (
             <div>
-                {this.props.options.map((option)=><li key={option}>{option}</li>)}
-               
+                <button onClick={this.handleRemoveAll}>Remove All</button>
+                {this.props.options.map((option) => <Option key={option} optiontext={option}>{option}</Option>)}
+
             </div>
         )
     }
 }
 
-
-export class AddOption extends React.Component{
-    render(){
-        return(
+class Option extends React.Component {
+    render() {
+        return (
             <div>
-                AddOption component here
+                <li key={this.props.optiontext}>{this.props.optiontext}</li>
             </div>
         )
     }
 }
 
-export class IndecisionApp extends React.Component{
-    render(){
+export class AddOption extends React.Component {
+    hanldeAddOption(e) {
+        e.preventDefault();
+        const option = e.target.elements.option.value.trim();
+        if (option) {
+            alert(option);
+        }
+    }
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.hanldeAddOption}>
+                    <input type="text" name="option"></input>
+                    <button>Add Option</button>
+                </form>
+            </div>
+        )
+    }
+}
+
+export class IndecisionApp extends React.Component {
+    render() {
         const title = 'Indecision';
         const subtitle = 'Put your life in the hands of a acomputer';
-        const options = ['Thing one','Thing two','Thing three'];
-        return(
+        const options = ['Thing one', 'Thing two', 'Thing three'];
+        return (
             <div>
-                <Header title={title} subtitle={subtitle}/>
-                <Action/>
-                <Options options={options}/>
-                <AddOption/>
+                <Header title={title} subtitle={subtitle} />
+                <Action />
+                <Options options={options} />
+                <AddOption />
             </div>
         )
     }
