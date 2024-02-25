@@ -27,8 +27,13 @@ export class Action extends React.Component {
 }
 
 export class Options extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleRemoveAll=this.handleRemoveAll.bind(this);
+    }
+
     handleRemoveAll() {
-        console.log(this);
+        console.log(this.props.options);
         alert('handleRemoveAll');
     }
     render() {

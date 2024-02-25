@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {IndecisionApp} from "./Template1";
+import { Counter } from './Counter';
 
 const count = 0;
 const TemplateTwo = (
@@ -69,6 +70,7 @@ function App() {
         <button onClick={()=>{}}>Add Option</button>
       </form> */}
       <IndecisionApp/>
+      <Counter/>
 
     </div>
   );
