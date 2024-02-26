@@ -3,6 +3,8 @@ import './App.css';
 import {IndecisionApp} from "./Template1";
 import { Counter } from './Counter';
 import Modal from './OptionModel';
+import './styles/styles.scss'
+
 
 const count = 0;
 const TemplateTwo = (
@@ -81,8 +83,8 @@ function App() {
         <button onClick={()=>{}}>Add Option</button>
       </form> */}
       <IndecisionApp/> 
-      <Counter/>
-      <User name ="Saravanan N" age="27"/>
+      {/* <Counter/>
+      <User name ="Saravanan N" age="27"/> */}
       
     </div>
   );
