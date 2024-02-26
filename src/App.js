@@ -12,6 +12,16 @@ const TemplateTwo = (
   </div>
 )
 
+const User = ({name,age}) => {
+  
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  )
+}
+
 function App() {
   var user = {
     name: 'Saravanan Nallakamu',
@@ -69,8 +79,9 @@ function App() {
         <input type="text" placeholder='Enter name' name='option'/>
         <button onClick={()=>{}}>Add Option</button>
       </form> */}
-      <IndecisionApp/>
+      <IndecisionApp/> 
       <Counter/>
+      <User name ="Saravanan N" age="27"/>
 
     </div>
   );

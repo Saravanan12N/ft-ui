@@ -27,11 +27,12 @@ export class Counter extends React.Component{
         console.log('handleMinusOne');
     }
     handleReset(){
-        this.setState((prevStat)=>{
-            return {
+        this.setState({
                 count:0
-            }
         })
+        this.setState({
+            count:this.state.count+1
+    })
         console.log('handleReset');
     }
     render(){
