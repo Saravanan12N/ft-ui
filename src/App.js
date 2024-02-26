@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {IndecisionApp} from "./Template1";
 import { Counter } from './Counter';
+import Modal from './OptionModel';
 
 const count = 0;
 const TemplateTwo = (
@@ -82,7 +83,7 @@ function App() {
       <IndecisionApp/> 
       <Counter/>
       <User name ="Saravanan N" age="27"/>
-
+      
     </div>
   );
 
