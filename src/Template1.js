@@ -44,7 +44,7 @@ Header.defaultProps = {
 export const Action = (props) => {
     return(
         <div>
-                <button disabled={!props.hasOptions} 
+                <button className="big-button" disabled={!props.hasOptions} 
                 onClick={props.handlePick}>What should i do?</button>
             </div>
     )
@@ -65,7 +65,11 @@ export const Action = (props) => {
 
 export const Options = (props) => {
     return (<div>
+        <div className="widget-header">
+        <h3 className="widget-header__title">Your Options</h3>
                         <button onClick={props.handleDeleteOptions}>Remove All</button>
+        </div>
+        
                         {props.options.map((option) => 
                         
                         <Option
@@ -95,7 +99,9 @@ export const Option = (props) => {
             <button
              onClick={(e)=>{
                 props.handleDeleteOption(props.optiontext)
-             }}>
+             }}
+             className="button button--link"
+             >
                 remove
                 </button>
         </div> 
@@ -129,7 +135,7 @@ export class AddOption extends React.Component {
                {this.state.error && <p>{this.state.error}</p> }
                 <form onSubmit={this.hanldeAddOption}>
                     <input type="text" name="option"></input>
-                    <button>Add Option</button>
+                    <button className="button">Add Option</button>
                 </form>
                 
             </div>
@@ -221,9 +227,11 @@ export class IndecisionApp extends React.Component {
         return (
             <div>
                 <Header title={title} subtitle={subtitle} />
+                <div className="container">
                 <Action
                     handlePick={this.handlePick}
                     hasOptions={this.state.options.length > 0 ? true : false} />
+                <div className="widget">
                 <Options
                     options={this.state.options}
                     handleDeleteOptions={this.handleDeleteOptions}
@@ -232,10 +240,14 @@ export class IndecisionApp extends React.Component {
                 <AddOption
                     handleAddOption={this.handleAddOption}
                 />
+                </div>
+                
+                
                 <Modal
                     selectedOption = {this.state.selectedOption}
                     handleClear = {this.handleClear}
                 />
+                </div>
             </div>
         )
     }
