@@ -69,6 +69,8 @@ export const Options = (props) => {
         <h3 className="widget-header__title">Your Options</h3>
                         <button onClick={props.handleDeleteOptions}>Remove All</button>
         </div>
+
+        {props.options.length === 0 && <p className="widget__message">Please add an option!</p>}
         
                         {props.options.map((option) => 
                         
@@ -94,7 +96,7 @@ export const Options = (props) => {
 
 export const Option = (props) => {
     return(
-        <div>
+        <div className="option">
             {props.optiontext}
             <button
              onClick={(e)=>{
