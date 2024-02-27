@@ -72,11 +72,12 @@ export const Options = (props) => {
 
         {props.options.length === 0 && <p className="widget__message">Please add an option!</p>}
         
-                        {props.options.map((option) => 
+                        {props.options.map((option,index) => 
                         
                         <Option
                          key={option}
                         optiontext={option}
+                        count={index+1}
                         handleDeleteOption={props.handleDeleteOption}
                         >{option}</Option>)}
         
@@ -97,7 +98,7 @@ export const Options = (props) => {
 export const Option = (props) => {
     return(
         <div className="option">
-            {props.optiontext}
+           <p className="option__text">{props.count}. {props.optiontext}</p>
             <button
              onClick={(e)=>{
                 props.handleDeleteOption(props.optiontext)
@@ -135,11 +136,10 @@ export class AddOption extends React.Component {
         return (
             <div>
                {this.state.error && <p>{this.state.error}</p> }
-                <form onSubmit={this.hanldeAddOption}>
-                    <input type="text" name="option"></input>
+                <form className="add-option" onSubmit={this.hanldeAddOption}>
+                    <input className="add-option__input" type="text" name="option"></input>
                     <button className="button">Add Option</button>
                 </form>
-                
             </div>
         )
     }
